@@ -1,0 +1,41 @@
+{
+  "organisasjonsnummer": "917101493",
+  "navn": "MDA NORGE AS",
+  "organisasjonsform": {
+    "kode": "BEDR",
+    "beskrivelse": "Bedrift",
+    "_links": {
+      "self": {
+        "href": "https://data.brreg.no/enhetsregisteret/api/organisasjonsformer/BEDR"
+      }
+    }
+  },
+  "registreringsdatoEnhetsregisteret": "2016-04-27",
+  "registrertIMvaregisteret": false,
+  "naeringskode1": {
+    "beskrivelse": "Medieformidlingstjenester",
+    "kode": "73.120"
+  },
+  "antallAnsatte": 4,
+  "overordnetEnhet": "917073066",
+  "oppstartsdato": "2016-03-29",
+  "beliggenhetsadresse": {
+    "land": "Norge",
+    "landkode": "NO",
+    "postnummer": "0355",
+    "poststed": "OSLO",
+    "adresse": [
+      "Bogstadveien 27B"
+    ],
+    "kommune": "OSLO",
+    "kommunenummer": "0301"
+  },
+  "_links": {
+    "self": {
+      "href": "https://data.brreg.no/enhetsregisteret/api/underenheter/917101493"
+    },
+    "overordnetEnhet": {
+      "href": "https://data.brreg.no/enhetsregisteret/api/enheter/917073066"
+    }
+  }
+}
