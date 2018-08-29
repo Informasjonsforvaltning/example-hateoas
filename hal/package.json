@@ -1,12 +1,12 @@
 {
-  "name": "hateoas-example",
+  "name": "hal-server",
   "version": "1.0.0",
-  "description": "",
-  "main": "",
+  "description": "Test of HAL",
+  "repository": "https://github.com/stigbd/hateoas-example",
+  "main": "hal-server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "hal": "node hal-server.js",
-    "json-api": "nodejs json-api-server.js"
+    "start": "node hal-server.js"
   },
   "author": "",
   "license": "ISC",
