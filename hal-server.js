@@ -32,4 +32,5 @@ order124.link("customer", "/customers/12369");
 // Embed the resources
 ordersCollection.embed("orders", [order123, order124]);
 
-console.log(ordersCollection.toJSON());
+console.log('JSON:\n' + JSON.stringify(ordersCollection));
+console.log('\nXML:\n' + ordersCollection.toXML());
