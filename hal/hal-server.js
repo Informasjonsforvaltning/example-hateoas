@@ -1,11 +1,10 @@
 var hal = require('halberd');
 
 // A resource
-var ordersCollection = new hal.Resource({
-  currentlyProcessing: 14,
-  shippedToday: 20
-}, "/orders");
+var orders = require('../model/organization.js');
 
+// Create a resource:
+var ordersCollection = new hal.Resource(orders, "/orders");
 // Links
 ordersCollection.link("next", "/orders?page=2");
 ordersCollection.link("find", {href: "/orders{?id}", templated: true});
