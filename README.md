@@ -2,6 +2,8 @@
 
 Small project to investigate HATEOAS. Specifically different specifications and their implementations in javascript/node
 
+The goal of this project is to implement a basic server that loads some demo data which is served to the user based on the accept header (basic content-negotiation). Ultimately the range of formats should include all of the following specifications.
+
 ## Specifications
 ### HAL
 * Spec: http://stateless.co/hal_specification.html
@@ -19,6 +21,7 @@ Small project to investigate HATEOAS. Specifically different specifications and 
 
 ### JSON-LD
 * Spec: https://www.w3.org/TR/json-ld/
+* Implementation tested: https://github.com/digitalbazaar/jsonld.js
 
 ### HYDRA
 * Spec: http://www.markus-lanthaler.com/hydra/

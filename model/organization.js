@@ -1,6 +1,6 @@
 // A resource
-var ordersCollection = ({
-  currentlyProcessing: 14,
-  shippedToday: 20
-});
-module.exports = ordersCollection;
+function organization (id, name, ){
+  this.id = id;
+  this.name = name;
+};
+module.exports = organization;

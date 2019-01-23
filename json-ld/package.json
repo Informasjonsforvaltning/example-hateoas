@@ -1,0 +1,22 @@
+{
+  "name": "json-ld",
+  "version": "1.0.0",
+  "description": "",
+  "main": "json-ld-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stigbd/hateoas-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stigbd/hateoas-example/issues"
+  },
+  "homepage": "https://github.com/stigbd/hateoas-example#readme",
+  "dependencies": {
+    "jsonld": "^1.0.4"
+  }
+}
