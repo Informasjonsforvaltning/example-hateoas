@@ -34,3 +34,24 @@ The goal of this project is to implement a basic server that loads some demo dat
 
 ## References
 https://sookocheff.com/post/api/on-choosing-a-hypermedia-format/
+
+## Usage
+```
+git clone https://github.com/stigbd/hateoas-example.git
+cd hateoas-example
+npm install
+npm run dev
+```
+In another terminal play with the server:
+```
+curl -i -H "application/hal+json" -X GET http://localhost:8080/organizations -w "\n"
+curl -i -H "application/ld+json" -X GET http://localhost:8080/organizations -w "\n"
+curl -i -X GET http://localhost:8080/organizations/1 -w "\n"
+curl \
+  --include \
+  --header "Content-Type: application/json"  \
+  --request POST \
+  --data '{"name":"Example Organzation"}' \
+  --url http://localhost:8080/organizations \
+  --write-out "\n"
+```

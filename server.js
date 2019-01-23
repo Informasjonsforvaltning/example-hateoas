@@ -18,13 +18,14 @@ app.use(async (ctx, next) => {
   if (!ctx.body) return;
   // Check which type is best match by giving
   // a list of acceptable types to `req.accepts()`.
-  const type = ctx.accepts('json', 'html');
+  const type = ctx.accepts('json', 'html', 'hal');
   // accepts json, koa handles this for us,
   // so just return
   if (type === 'json') return;
   // in some cases we accept html
   if (type === 'html') return;
   // not acceptable
+  if (type === 'hal') return;
   if (type === false) ctx.throw(406);
 });
 
