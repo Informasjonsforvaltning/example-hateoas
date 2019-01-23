@@ -10,6 +10,8 @@ app.use(bodyParser());
 const db = [];
 var maxId = 0;
 
+// TODO check content-type 
+
 // Content negotiation middleware.
 // For now we only return application/json
 app.use(async (ctx, next) => {
@@ -18,14 +20,12 @@ app.use(async (ctx, next) => {
   if (!ctx.body) return;
   // Check which type is best match by giving
   // a list of acceptable types to `req.accepts()`.
-  const type = ctx.accepts('json', 'html', 'hal');
+  const type = ctx.accepts("json", "application/hal+json");
   // accepts json, koa handles this for us,
   // so just return
   if (type === 'json') return;
-  // in some cases we accept html
-  if (type === 'html') return;
+  if (type === 'application/hal+json') return; //TODO need to make hal representation
   // not acceptable
-  if (type === 'hal') return;
   if (type === false) ctx.throw(406);
 });
 
