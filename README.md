@@ -7,8 +7,7 @@ The goal of this project is to implement a basic server that loads some demo dat
 ## Specifications
 ### HAL
 * Spec: http://stateless.co/hal_specification.html
-* Implementation tested: https://github.com/jpbochi/halberd
-* Test: [hal-server.js](hal/hal-server.js)
+* Implementation used: https://github.com/jpbochi/halberd
 
 ### JSON API
 * Spec: http://jsonapi.org/format/
@@ -21,7 +20,7 @@ The goal of this project is to implement a basic server that loads some demo dat
 
 ### JSON-LD
 * Spec: https://www.w3.org/TR/json-ld/
-* Implementation tested: https://github.com/digitalbazaar/jsonld.js
+* Implementation to be used: https://github.com/digitalbazaar/jsonld.js
 
 ### HYDRA
 * Spec: http://www.markus-lanthaler.com/hydra/
