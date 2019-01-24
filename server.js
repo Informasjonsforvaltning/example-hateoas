@@ -27,7 +27,6 @@ app.use(async (ctx, next) => {
   if (type === 'json') return;
   // accepts hal, we need to handle this:
   if (type === 'application/hal+json') {
-    //TODO need to make hal representation
     console.log('Converting to hal....')
     ctx.body = new hal.Resource(ctx.body, "/organizations/" + ctx.body.id);
     ctx.type = 'application/hal+json' // need to set this after body, but see this PR:https://github.com/koajs/koa/pull/1131
