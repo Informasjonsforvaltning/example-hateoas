@@ -16,6 +16,7 @@
   "dependencies": {
     "halberd": "^0.2.3",
     "hot-shots": "^6.1.1",
+    "jsonld": "^1.5.0",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-logger": "^3.2.0",
