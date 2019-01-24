@@ -27,8 +27,21 @@ app.use(async (ctx, next) => {
   if (type === 'json') return;
   // accepts hal, we need to handle this:
   if (type === 'application/hal+json') {
-    console.log('Converting to hal....')
-    ctx.body = new hal.Resource(ctx.body, "/api/organizations/" + ctx.body.id);
+    // TODO need to distinguish between a collection and a single resource
+    if (Array.isArray(ctx.body)) {
+      orgCollection = new hal.Resource({total: ctx.body.length}, "/api/organizations");
+      // For every object, create a resource.
+      var orgArray = []
+      for (var i = 0; i < ctx.body.length; i++) {
+        orgArray.push(new hal.Resource(ctx.body[i], "/api/organizations/" + ctx.body[i].id));
+      }
+      // Then embed the resources:
+      orgCollection.embed("organizations", orgArray);
+      ctx.body = orgCollection.toJSON();
+      // todo create hal collection
+    } else {
+      ctx.body = new hal.Resource(ctx.body, "/api/organizations/" + ctx.body.id);
+    }
     ctx.type = 'application/hal+json' // need to set this after body, but see this PR:https://github.com/koajs/koa/pull/1131
     return;
   }
