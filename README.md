@@ -44,14 +44,14 @@ npm run dev
 ```
 In another terminal play with the server:
 ```
-curl -i -H "application/hal+json" -X GET http://localhost:8080/organizations -w "\n"
-curl -i -H "application/ld+json" -X GET http://localhost:8080/organizations -w "\n"
-curl -i -X GET http://localhost:8080/organizations/1 -w "\n"
+curl -i -H "Accept: application/hal+json" -X GET http://localhost:8080/api/organizations -w "\n"
+curl -i -H "Accept: application/ld+json" -X GET http://localhost:8080/api/organizations -w "\n"
+curl -i -X GET http://localhost:8080/api/organizations/1 -w "\n"
 curl \
   --include \
   --header "Content-Type: application/json"  \
   --request POST \
   --data '{"name":"Example Organzation"}' \
-  --url http://localhost:8080/organizations \
+  --url http://localhost:8080/api/organizations \
   --write-out "\n"
 ```
