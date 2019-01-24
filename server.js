@@ -32,14 +32,13 @@ app.use(async (ctx, next) => {
 
 const organizations = {
   list: (ctx) => {
-    ctx.body = JSON.stringify(db); // otherwise return the whole lot
+    ctx.body = db; // otherwise return the whole lot
   },
 
   create: (ctx) => {
-    console.log('Creating: ', ctx.request.body);
     id = ++maxId;
     const org = new Organization(ctx.request.body, id);
-    console.log('org: ', org);
+    console.log('Creating new organization: ', org);
     var index = db.push(org);
     ctx.set('Location', 'http://localhost:8080/api/organizations/' + org.id);
     ctx.status = 201;
@@ -47,8 +46,8 @@ const organizations = {
 
   show: (ctx, id) => {
     var organization = db.find( o => o.id === parseInt(id));
-    if (!organization) return ctx.throw(404, 'cannot find that organization');
-    ctx.body = JSON.stringify(organization);
+    if (!organization) return ctx.throw(404, 'Cannot find that organization');
+    ctx.body = organization;
   }
 };
 
