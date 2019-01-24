@@ -3,7 +3,8 @@ const _ = require ('koa-route');
 const bodyParser = require('koa-bodyparser');
 const Koa = require('koa');
 const app = new Koa();
-const Organization = require('./model/organization')
+const Organization = require('./model/organization');
+const hal = require('halberd');
 
 app.use(logger());
 app.use(bodyParser());
@@ -22,10 +23,16 @@ app.use(async (ctx, next) => {
   // Check which type is best match by giving
   // a list of acceptable types to `req.accepts()`.
   const type = ctx.accepts("json", "application/hal+json");
-  // accepts json, koa handles this for us,
-  // so just return
+  // accepts json, koa handles this for us,so just return:
   if (type === 'json') return;
-  if (type === 'application/hal+json') return; //TODO need to make hal representation
+  // accepts hal, we need to handle this:
+  if (type === 'application/hal+json') {
+    //TODO need to make hal representation
+    console.log('Converting to hal....')
+    ctx.body = new hal.Resource(ctx.body, "/organizations/" + ctx.body.id);
+    ctx.type = 'application/hal+json' // need to set this after body, but see this PR:https://github.com/koajs/koa/pull/1131
+    return;
+  }
   // not acceptable
   if (type === false) ctx.throw(406);
 });
