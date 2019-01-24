@@ -53,7 +53,7 @@ const organizations = {
   show: (ctx, id) => {
     var organization = db.find( o => o.id === parseInt(id));
     if (!organization) return ctx.throw(404, 'Cannot find that organization');
-    ctx.body = organization;
+    ctx.body = organization.toJSON();
   }
 };
 
