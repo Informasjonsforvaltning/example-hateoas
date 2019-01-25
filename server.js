@@ -4,7 +4,7 @@ const bodyParser = require('koa-bodyparser');
 const Koa = require('koa');
 const app = new Koa();
 const Organization = require('./model/organization');
-const hal = require('halberd');
+const hal = require('./representations/hal');
 const jsonld = require('jsonld')
 
 app.use(logger());
@@ -26,7 +26,7 @@ app.use(async (ctx, next) => {
   const type = ctx.accepts("application/ld+json", "application/hal+json", "json");
   // accepts json-ld, we need to handle this:
   if (type === 'application/ld+json') {
-    // TODO need to distinguish between a collection and a single resource
+    // We need to distinguish between a collection and a single resource
     if (Array.isArray(ctx.body)) {
       orgCollection = new hal.Resource({total: ctx.body.length}, "/api/organizations");
       // For every object, create a resource.
@@ -47,21 +47,7 @@ app.use(async (ctx, next) => {
   }
   // accepts hal, we need to handle this:
   if (type === 'application/hal+json') {
-    // TODO need to distinguish between a collection and a single resource
-    if (Array.isArray(ctx.body)) {
-      orgCollection = new hal.Resource({total: ctx.body.length}, "/api/organizations");
-      // For every object, create a resource.
-      var orgArray = []
-      for (var i = 0; i < ctx.body.length; i++) {
-        orgArray.push(new hal.Resource(ctx.body[i], "/api/organizations/" + ctx.body[i].id));
-      }
-      // Then embed the resources:
-      orgCollection.embed("organizations", orgArray);
-      ctx.body = orgCollection.toJSON();
-      // todo create hal collection
-    } else {
-      ctx.body = new hal.Resource(ctx.body, "/api/organizations/" + ctx.body.id);
-    }
+    ctx.body = hal.getRepresentation(ctx.body);
     ctx.type = 'application/hal+json' // need to set this after body, but see this PR:https://github.com/koajs/koa/pull/1131
     return;
   }

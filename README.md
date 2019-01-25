@@ -10,6 +10,15 @@ The goal of this project is to implement a basic server that loads some demo dat
 * Media type identifier: `application/hal+json`
 * Implementation used: https://github.com/jpbochi/halberd
 
+### JSON-LD
+* Spec: https://www.w3.org/TR/json-ld/
+* Media type identifier: `application/ld+json`
+* Implementation to be used: https://github.com/digitalbazaar/jsonld.js
+
+### HYDRA
+* Spec: http://www.markus-lanthaler.com/hydra/
+* Media type identifier: `application/ld+json`
+
 ### JSON API
 * Spec: http://jsonapi.org/format/
 * Media type identifier: `application/vnd.api+json`
@@ -23,15 +32,6 @@ The goal of this project is to implement a basic server that loads some demo dat
 ### JSON HYPER-SCHEMA
 * Spec: http://json-schema.org/latest/json-schema-hypermedia.html
 * Media type identifier: `application/schema+json`
-
-### JSON-LD
-* Spec: https://www.w3.org/TR/json-ld/
-* Media type identifier: `application/ld+json`
-* Implementation to be used: https://github.com/digitalbazaar/jsonld.js
-
-### HYDRA
-* Spec: http://www.markus-lanthaler.com/hydra/
-* Media type identifier: `application/ld+json`
 
 ### Collection+JSON
 * Spec: http://amundsen.com/media-types/collection/
